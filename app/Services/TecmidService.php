@@ -2,13 +2,11 @@
 
 namespace App\Services;
 
-use App\Repositories\TecmidRepository;
-
 abstract class TecmidService
 {
     public $repository;
 
-    public function __construct(TecmidRepository $repository)
+    public function __construct($repository)
     {
         $this->repository = $repository;
     }

@@ -2,13 +2,11 @@
 
 namespace App\Repositories;
 
-use Illuminate\Database\Eloquent\Model;
-
 abstract class TecmidRepository
 {
     public $model;
 
-    public function __construct(Model $model)
+    public function __construct($model)
     {
         $this->model = $model;
     }

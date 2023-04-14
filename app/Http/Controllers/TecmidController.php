@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Services\TecmidService;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller;
@@ -13,7 +12,7 @@ class TecmidController extends Controller
 
     public $service;
 
-    public function __construct(TecmidService $service)
+    public function __construct($service)
     {
         $this->service = $service;
     }
