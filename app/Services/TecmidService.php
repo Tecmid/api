@@ -2,6 +2,8 @@
 
 namespace App\Services;
 
+use Illuminate\Http\Request;
+
 abstract class TecmidService
 {
     public $repository;
@@ -14,10 +16,14 @@ abstract class TecmidService
     /**
      * Insert data on database
      * 
-     * @param array $request
+     * @param Request $request
      */
-    public function create(array $data)
+    public function create(Request $request)
     {
-        return $this->repository->create($data);
+        try {
+            return response()->json($this->repository->create($request->toArray()), 201);
+        } catch (\Throwable $th) {
+            throw new \Exception($th->getMessage());
+        }
     }
 }
