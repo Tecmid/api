@@ -14,12 +14,14 @@ class AuthController extends TecmidController
     }
 
     /**
+     * Generate token
+     * 
      * @param AuthRequest $request
      * @return JsonResponse
      */
-    public function login(AuthRequest $request): JsonResponse
+    public function authenticate(AuthRequest $request): JsonResponse
     {
-        return $this->service->login($request);
+        return $this->service->authenticate($request);
     }
 
     /**
@@ -31,4 +33,16 @@ class AuthController extends TecmidController
     {
         return $this->service->respondWithToken(auth()->refresh());
     }
+
+    /**
+     * Check credentials and do login
+     * 
+     * @param AuthRequest $request
+     * @return JsonResponse
+     */
+    public function login(AuthRequest $request): JsonResponse
+    {
+        return $this->service->login($request);
+    }
+
 }

@@ -15,7 +15,7 @@ use App\Http\Controllers\AuthController;
 |
 */
 Route::prefix('v1')->group(function () {
-    Route::post('authenticate', [AuthController::class, 'login']);
+    Route::post('authenticate', [AuthController::class, 'authenticate']);
 
     Route::middleware('ApiAuth')->group(function () {
         Route::post('auth/refresh', [AuthController::class, 'refresh']);
