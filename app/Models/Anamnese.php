@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-class Anamnese
+class Anamnese extends Model
 {
     /**
      * The attributes that are mass assignable.

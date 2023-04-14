@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-class Doctor
+class Doctor extends Model
 {
     /**
      * The attributes that are mass assignable.
