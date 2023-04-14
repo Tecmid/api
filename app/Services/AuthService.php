@@ -46,4 +46,20 @@ class AuthService
             'expires_in' => auth()->factory()->getTTL()
         ]);
     }
+
+    /**
+     * Get the token array structure.
+     *
+     * @param  string $token
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function respondWithToken($token): JsonResponse
+    {
+        return response()->json([
+            'access_token' => $token,
+            'token_type' => 'bearer',
+            'expires_in' => auth()->factory()->getTTL() * 60
+        ]);
+    }
 }

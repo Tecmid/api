@@ -26,4 +26,14 @@ class AuthController extends Controller
     {
         return $this->service->login($request);
     }
+
+    /**
+     * Refresh a token.
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function refresh(): JsonResponse
+    {
+        return $this->service->respondWithToken(auth()->refresh());
+    }
 }
