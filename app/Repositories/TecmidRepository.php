@@ -15,10 +15,19 @@ abstract class TecmidRepository
      * Insert data on table
      * 
      * @param array $data
-     * @return array
      */
     public function create(array $data)
     {
         return $this->model::insert($data);
+    }
+
+    /**
+     * Get data by id
+     * 
+     * @param int $id
+     */
+    public function getById(int $id)
+    {
+        return $this->model::find($id);
     }
 }
