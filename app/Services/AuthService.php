@@ -6,7 +6,7 @@ use App\Http\Requests\AuthRequest;
 use App\Models\User;
 use Illuminate\Http\JsonResponse;
 
-class AuthService
+class AuthService extends TecmidService
 {
     /**
      * @param array $userData
