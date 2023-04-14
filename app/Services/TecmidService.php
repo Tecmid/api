@@ -13,9 +13,11 @@ abstract class TecmidService
 
     /**
      * Insert data on database
+     * 
+     * @param array $request
      */
-    public function create()
+    public function create(array $data)
     {
-        dd('está funcionando');
+        return $this->repository->create($data);
     }
 }
