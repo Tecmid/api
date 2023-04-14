@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DoctorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +17,7 @@ use App\Http\Controllers\AuthController;
 */
 Route::prefix('v1')->group(function () {
     Route::post('authenticate', [AuthController::class, 'authenticate']);
+    Route::post('register', [DoctorController::class, 'create']);
 
     Route::middleware('ApiAuth')->group(function () {
         Route::post('auth/refresh', [AuthController::class, 'refresh']);
