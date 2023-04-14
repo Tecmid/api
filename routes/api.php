@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\AuthController;
 
 /*
@@ -17,7 +18,11 @@ Route::prefix('v1')->group(function () {
     Route::post('authenticate', [AuthController::class, 'login']);
 
     Route::middleware('ApiAuth')->group(function () {
-        Route::post('auth/refresh', [AuthController::class, 'refresh']);        
+        Route::post('auth/refresh', [AuthController::class, 'refresh']);
+
+        Route::prefix('appointments')->group(function () {
+            Route::post('/', [AppointmentController::class, 'create']);
+        });
     });
 
 });
