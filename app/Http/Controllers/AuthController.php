@@ -6,16 +6,11 @@ use App\Http\Requests\AuthRequest;
 use App\Services\AuthService;
 use Illuminate\Http\JsonResponse;
 
-class AuthController extends Controller
+class AuthController extends TecmidController
 {
-    /**
-     * @var AuthService
-     */
-    protected AuthService $service;
-
     public function __construct()
     {
-        $this->service = new AuthService();
+        parent::__construct(new AuthService());
     }
 
     /**
