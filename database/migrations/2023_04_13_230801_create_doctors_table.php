@@ -29,7 +29,7 @@ return new class extends Migration
             $table->string('address_state');
             $table->string('address_country');
             $table->json('specialties')->nullable();
-            $table->text('image');
+            $table->text('image')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
