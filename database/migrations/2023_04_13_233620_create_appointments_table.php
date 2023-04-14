@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('doctor_id');
             $table->unsignedBigInteger('patient_id');
-            $table->integer('anamnese_id');
+            $table->unsignedBigInteger('anamnese_id');
             $table->dateTime('date');
             $table->integer('status');
             $table->integer('payment_status');
