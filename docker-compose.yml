@@ -1,0 +1,61 @@
+version: '3'
+
+networks:
+  tecmid:
+    external: true
+
+volumes:
+  mysqldata:
+  redis:
+
+services:
+  tecmid-api:
+    container_name: tecmid-api
+    build:
+      context: .
+      dockerfile: ./.docker/development/php/Dockerfile
+    restart: always
+    working_dir: /var/www/application
+    ports:
+      - "9000:80"
+    volumes:
+      - ./:/var/www/application
+      - ./.docker/development/php/www.conf:/var/data/php-fpm/www.tmpl.conf
+      - ./.docker/development/nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./.docker/development/nginx/default.conf:/etc/nginx/conf.d/default.conf
+    networks:
+      - tecmid
+
+  tecmid-api-mysql:
+    container_name: tecmid-api-mysql
+    image: mysql:8.0
+    volumes:
+      - mysqldata:/var/lib/mysql
+    tty: true
+    ports:
+      - "3306:3306"
+    expose:
+      - 3306
+    environment:
+      VIRTUAL_HOST: db.tecmid-api.dev
+      MYSQL_TCP_PORT: 3306
+      MYSQL_DATABASE: tecmid-api
+      MYSQL_USER: tecmid
+      MYSQL_PASSWORD: secret
+      MYSQL_ROOT_PASSWORD: secret
+      SERVICE_TAGS: dev
+      SERVICE_NAME: mysql
+    networks:
+      - tecmid
+
+  tecmid-api-redis:
+    container_name: tecmid-api-redis
+    image: redis:6.2-alpine
+    restart: always
+    ports:
+      - '6380:6379'
+    command: redis-server --save 20 1 --loglevel warning --requirepass eYVX7EwVmmxKPCDmwMtyKVge8oLd2t81
+    volumes:
+      - redis:/data
+    networks:
+      - tecmid
