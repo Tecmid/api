@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Appointment extends Model
 {
@@ -34,33 +35,44 @@ class Appointment extends Model
     ];
 
     /**
+     * The relations to eager load on every query.
+     *
+     * @var array
+     */
+    protected $with = [
+        'doctor',
+        'patient',
+        'anamnese',
+    ];
+
+    /**
      * Get the doctor associated with the appointment
      * 
-     * @return HasOne
+     * @return BelongsTo
      */
-    public function doctor(): HasOne
+    public function doctor()
     {
-        return $this->hasOne(Doctor::class, 'doctor_id');
+        return $this->belongsTo(Doctor::class, 'doctor_id');
     }
 
     /**
      * Get the patient associated with the appointment
      * 
-     * @return HasOne
+     * @return BelongsTo
      */
-    public function patient(): HasOne
+    public function patient(): BelongsTo
     {
-        return $this->hasOne(Patient::class, 'patient_id');
+        return $this->belongsTo(Patient::class, 'patient_id');
     }
 
     /**
      * Get the anamnese associated with the appointment
      * 
-     * @return HasOne
+     * @return BelongsTo
      */
-    public function anamnese(): HasOne
+    public function anamnese(): BelongsTo
     {
-        return $this->hasOne(Anamnese::class, 'anamnese_id');
+        return $this->belongsTo(Anamnese::class, 'anamnese_id');
     }
 
 }

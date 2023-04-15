@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Model;
+
 class Anamnese extends Model
 {
     /**
@@ -21,6 +23,16 @@ class Anamnese extends Model
         'hypothesis',
         'notes',
     ];
+
+    /**
+     * The relations to eager load on every query.
+     *
+     * @var array
+     */
+    protected $with = [
+        'appointments',
+    ];
+
 
     /**
      * Get appointments associated with the anamnese
