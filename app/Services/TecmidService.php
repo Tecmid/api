@@ -21,7 +21,7 @@ abstract class TecmidService
     public function create(Request $request)
     {
         try {
-            return response()->json($this->repository->create($request->toArray()), 201);
+            return $this->repository->create($request->toArray());
         } catch (\Throwable $th) {
             throw new \Exception($th->getMessage());
         }

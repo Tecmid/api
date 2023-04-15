@@ -57,6 +57,6 @@ class DoctorService extends TecmidService
      */
     private function generatePassword(): void
     {
-        $this->request->password = Hash::make($this->request->password);
+        $this->request['password'] = Hash::make($this->request['password']);
     }
 }

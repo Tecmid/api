@@ -26,12 +26,10 @@ abstract class TecmidController extends Controller
     public function create(Request $data)
     {
         try {
-            return response()->json($this->service->create($data));
+            $this->service->create($data);
+            return response()->json([], 201);
         } catch (\Throwable $th) {
-            return response()->json([
-                'error' => true,
-                'message' => $th->getMessage()
-            ], 500);
+            throw new \Exception($th->getMessage());
         }
     }
 }
