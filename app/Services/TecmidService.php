@@ -28,21 +28,17 @@ abstract class TecmidService
     }
 
     /**
-     * Insert data on database
+     * Insert data
      * 
      * @param Request $request
      */
     public function create(Request $request)
     {
-        try {
-            return $this->repository->create($request->toArray());
-        } catch (\Throwable $th) {
-            throw new \Exception($th->getMessage());
-        }
+        return $this->repository->create($request->toArray());
     }
 
     /**
-     * Update data on database
+     * Update data
      * 
      * @param int $id
      * @param Request $request
@@ -53,7 +49,7 @@ abstract class TecmidService
     }
 
     /**
-     * Delete data on database
+     * Delete data
      * 
      * @param int $id
      */

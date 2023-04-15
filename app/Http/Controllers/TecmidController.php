@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Validation\ValidatesRequests;
-use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 
 abstract class TecmidController extends Controller
@@ -13,7 +12,6 @@ abstract class TecmidController extends Controller
 
     public $service;
     public string $itemDomain;
-    public Request $request;
 
     public function __construct($service)
     {
@@ -29,7 +27,7 @@ abstract class TecmidController extends Controller
     }
 
     /**
-     * Update data from database
+     * Update data
      */
     public function update()
     {
@@ -40,15 +38,15 @@ abstract class TecmidController extends Controller
     }
 
     /**
-     * Get data from database by id
+     * Get data by id
      */
     public function getById()
     {
-        $this->service->getById(request()->route($this->itemDomain));
+        return $this->service->getById(request()->route($this->itemDomain));
     }
 
     /**
-     * Delete data from database
+     * Delete data
      */
     public function delete()
     {
