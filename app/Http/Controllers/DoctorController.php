@@ -14,6 +14,14 @@ class DoctorController extends TecmidController
 
     /**
      * @param int $doctorId
+     */
+    public function getDoctor(int $doctorId)
+    {        
+        return $this->service->getById($doctorId);        
+    }
+
+    /**
+     * @param int $doctorId
      * @param Request $request
      */
     public function update(int $doctorId, Request $request)
