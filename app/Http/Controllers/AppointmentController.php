@@ -15,10 +15,26 @@ class AppointmentController extends TecmidController
 
     /**
      * @param int $appointmentId
+     */
+    public function getAppointment(int $appointmentId)
+    {        
+        return $this->service->getById($appointmentId);        
+    }
+
+    /**
+     * @param int $appointmentId
      * @param Request $request
      */
     public function update(int $appointmentId, Request $request)
     {        
         $this->service->update($appointmentId, $request);        
+    }
+
+    /**
+     * @param int $appointmentId
+     */
+    public function delete(int $appointmentId)
+    {        
+        $this->service->delete($appointmentId);        
     }
 }

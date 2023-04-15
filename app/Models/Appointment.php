@@ -3,9 +3,19 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Appointment extends Model
 {
+    use SoftDeletes;
+
+    /**
+     * The primary key from table
+     *
+     * @var array|string
+     */
+    protected $primaryKey = 'id';
+
     /**
      * The attributes that are mass assignable.
      *

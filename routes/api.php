@@ -23,13 +23,15 @@ Route::prefix('v1')->group(function () {
         Route::post('auth/refresh', [AuthController::class, 'refresh']);
         
         Route::prefix('doctors')->group(function () {
-            Route::put('/{doctorId}', [DoctorController::class, 'update']);
-            Route::delete('/{doctorId}', [DoctorController::class, 'delete']);  // TODO: proteger essa rota para apenas admins da Tecmid poderem acessar
+            Route::put('{doctorId}', [DoctorController::class, 'update']);
+            Route::delete('{doctorId}', [DoctorController::class, 'delete']);  // TODO: proteger essa rota para apenas admins da Tecmid poderem acessar
         });
 
         Route::prefix('appointments')->group(function () {
             Route::post('/', [AppointmentController::class, 'create']);
-            Route::put('/{appointmentId}', [AppointmentController::class, 'update']);
+            Route::get('{appointmentId}', [AppointmentController::class, 'getAppointment']);
+            Route::put('{appointmentId}', [AppointmentController::class, 'update']);
+            Route::delete('{appointmentId}', [AppointmentController::class, 'delete']);
         });
     });
 
