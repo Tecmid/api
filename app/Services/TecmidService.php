@@ -42,6 +42,17 @@ abstract class TecmidService
     }
 
     /**
+     * Update data on database
+     * 
+     * @param int $id
+     * @param Request $request
+     */
+    public function update(int $id, Request $request)
+    {
+        return $this->repository->update($id, $request->toArray());
+    }
+
+    /**
      * Delete data on database
      * 
      * @param int $id

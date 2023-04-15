@@ -12,6 +12,8 @@ abstract class TecmidController extends Controller
     use AuthorizesRequests, ValidatesRequests;
 
     public $service;
+    public string $itemDomain;
+    public Request $request;
 
     public function __construct($service)
     {
@@ -20,16 +22,36 @@ abstract class TecmidController extends Controller
 
     /**
      * Insert data on database
-     * 
-     * @param Request $request
      */
-    public function create(Request $data)
+    public function create()
     {
-        try {
-            $this->service->create($data);
-            return response()->json([], 201);
-        } catch (\Throwable $th) {
-            throw new \Exception($th->getMessage());
-        }
+        return response()->json($this->service->create(request()), 201);
+    }
+
+    /**
+     * Update data from database
+     */
+    public function update()
+    {
+        $this->service->update(
+            request()->route($this->itemDomain), 
+            $request
+        );        
+    }
+
+    /**
+     * Get data from database by id
+     */
+    public function getById()
+    {
+        $this->service->getById(request()->route($this->itemDomain));
+    }
+
+    /**
+     * Delete data from database
+     */
+    public function delete()
+    {
+        $this->service->delete(request()->route($this->itemDomain));
     }
 }
