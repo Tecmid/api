@@ -21,6 +21,10 @@ Route::prefix('v1')->group(function () {
 
     Route::middleware('ApiAuth')->group(function () {
         Route::post('auth/refresh', [AuthController::class, 'refresh']);
+        
+        Route::prefix('doctors')->group(function () {
+            Route::put('/{doctorId}', [DoctorController::class, 'update']);
+        });
 
         Route::prefix('appointments')->group(function () {
             Route::post('/', [AppointmentController::class, 'create']);

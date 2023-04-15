@@ -30,4 +30,15 @@ abstract class TecmidRepository
     {
         return $this->model::find($id);
     }
+
+    /**
+     * Update data on table
+     * 
+     * @param int $id
+     * @param array $data
+     */
+    public function update(int $id, array $data)
+    {
+        return $this->model::find($id)->update($data);
+    }
 }

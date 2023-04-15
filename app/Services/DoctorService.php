@@ -59,4 +59,18 @@ class DoctorService extends TecmidService
     {
         $this->request['password'] = Hash::make($this->request['password']);
     }
+
+    /**
+     * Insert data on database
+     * 
+     * @param int $doctorId
+     * @param Request $request
+     */
+    public function update(int $doctorId, Request $request)
+    {
+        return $this->repository->update(
+            $doctorId, 
+            $this->filterColumns($request)
+        );
+    }
 }
