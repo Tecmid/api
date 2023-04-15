@@ -14,6 +14,20 @@ abstract class TecmidService
     }
 
     /**
+     * Get data on database by id
+     * 
+     * @param int $id
+     */
+    public function getById(int $id)
+    {
+        try {
+            return $this->repository->getById($id);
+        } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $th) {
+            throw new \Exception("ID {$id} not found", 404);
+        }
+    }
+
+    /**
      * Insert data on database
      * 
      * @param Request $request
