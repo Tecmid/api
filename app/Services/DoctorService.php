@@ -70,7 +70,7 @@ class DoctorService extends TecmidService
     {
         return $this->repository->update(
             $doctorId, 
-            $this->filterColumns($request)
+            $request->toArray()
         );
     }
 }

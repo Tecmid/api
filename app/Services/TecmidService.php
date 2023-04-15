@@ -28,16 +28,6 @@ abstract class TecmidService
     }
 
     /**
-     * Remove columns that are not in fillable model
-     * 
-     * @param Request $request
-     */
-    protected function filterColumns(Request $request)
-    {
-        return $request->only($this->repository->model->getFillable());
-    }
-
-    /**
      * Delete data on database
      * 
      * @param int $id
