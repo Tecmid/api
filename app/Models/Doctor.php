@@ -45,6 +45,7 @@ class Doctor extends Authenticatable implements JWTSubject
      */
     protected $hidden = [
         'password',
+        'deleted_at',
     ];
 
     /**

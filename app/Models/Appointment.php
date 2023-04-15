@@ -2,21 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Appointment extends Model
+class Appointment extends TecmidModel
 {
-    use SoftDeletes;
-
-    /**
-     * The primary key from table
-     *
-     * @var array|string
-     */
-    protected $primaryKey = 'id';
-
     /**
      * The attributes that are mass assignable.
      *
