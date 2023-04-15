@@ -25,4 +25,18 @@ class AppointmentService extends TecmidService
 
         return parent::create($request);
     }
+
+    /**
+     * Insert data on database
+     * 
+     * @param int $appointmentId
+     * @param Request $request
+     */
+    public function update(int $appointmentId, Request $request)
+    {
+        return $this->repository->update(
+            $appointmentId, 
+            $request->toArray()
+        );
+    }
 }

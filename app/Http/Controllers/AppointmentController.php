@@ -12,4 +12,13 @@ class AppointmentController extends TecmidController
     {
         parent::__construct(new AppointmentService());
     }
+
+    /**
+     * @param int $appointmentId
+     * @param Request $request
+     */
+    public function update(int $appointmentId, Request $request)
+    {        
+        $this->service->update($appointmentId, $request);        
+    }
 }

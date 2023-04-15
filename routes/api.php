@@ -29,6 +29,7 @@ Route::prefix('v1')->group(function () {
 
         Route::prefix('appointments')->group(function () {
             Route::post('/', [AppointmentController::class, 'create']);
+            Route::put('/{appointmentId}', [AppointmentController::class, 'update']);
         });
     });
 
