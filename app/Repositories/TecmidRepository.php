@@ -41,4 +41,14 @@ abstract class TecmidRepository
     {
         return $this->model::find($id)->update($data);
     }
+
+    /**
+     * Delete data on table
+     * 
+     * @param int $id
+     */
+    public function delete(int $id)
+    {
+        return $this->model::find($id)->delete();
+    }
 }

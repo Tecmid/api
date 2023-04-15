@@ -20,4 +20,12 @@ class DoctorController extends TecmidController
     {        
         $this->service->update($doctorId, $request);        
     }
+
+    /**
+     * @param int $doctorId
+     */
+    public function delete(int $doctorId)
+    {        
+        $this->service->delete($doctorId);        
+    }
 }

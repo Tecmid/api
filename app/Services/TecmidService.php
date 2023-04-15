@@ -36,4 +36,14 @@ abstract class TecmidService
     {
         return $request->only($this->repository->model->getFillable());
     }
+
+    /**
+     * Delete data on database
+     * 
+     * @param int $id
+     */
+    public function delete(int $id)
+    {
+        return $this->repository->delete($id);
+    }
 }
