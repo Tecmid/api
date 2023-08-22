@@ -11,6 +11,7 @@ class Anamnese extends TecmidModel
      */
     protected $fillable = [
         'patient_id',
+        'appointment_id',
         'complaint',
         'sickness',
         'conduct',
