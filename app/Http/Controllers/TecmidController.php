@@ -33,7 +33,7 @@ abstract class TecmidController extends Controller
     {
         $this->service->update(
             request()->route($this->itemDomain), 
-            $request
+            request()
         );        
     }
 
