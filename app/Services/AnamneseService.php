@@ -23,12 +23,6 @@ class AnamneseService extends TecmidService
             'patient_id' => 'integer|required'
         ]);
 
-        $anamneseId = null;
-
-        if ($request->anamnese_id) {
-            $anamneseId = $request->anamnese_id;
-        }
-
-        return $this->repository->createOrUpdate($request->toArray(), $anamneseId);
+        return $this->repository->createOrUpdate($request->toArray());
     }
 }

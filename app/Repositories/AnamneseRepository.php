@@ -11,10 +11,11 @@ class AnamneseRepository extends TecmidRepository
         parent::__construct(new Anamnese());
     }
 
-    public function createOrUpdate(array $data, int $anamneseId = null)
+    public function createOrUpdate(array $data)
     {
         return $this->model::updateOrCreate([
-            'id' => $anamneseId,
+            'appointment_id' => $data['appointment_id'],
+            'patient_id' => $data['patient_id'],
         ], $data);
     }
 }
