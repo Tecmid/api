@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AnamneseController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\AuthController;
@@ -33,6 +34,10 @@ Route::prefix('v1')->group(function () {
             Route::get('{appointmentId}', [AppointmentController::class, 'getById']);
             Route::put('{appointmentId}', [AppointmentController::class, 'update']);
             Route::delete('{appointmentId}', [AppointmentController::class, 'delete']);
+
+            Route::prefix('anamnese')->group(function () {
+                Route::post('/', [AnamneseController::class, 'createOrUpdate']);
+            });
         });
     });
 
