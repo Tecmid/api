@@ -21,25 +21,4 @@ class Anamnese extends TecmidModel
         'hypothesis',
         'notes',
     ];
-
-    /**
-     * The relations to eager load on every query.
-     *
-     * @var array
-     */
-    protected $with = [
-        'appointments',
-    ];
-
-
-    /**
-     * Get appointments associated with the anamnese
-     * 
-     * @return HasMany
-     */
-    public function appointments(): HasMany
-    {
-        return $this->hasMany(Appointment::class, 'anamnese_id');
-    }
-
 }
