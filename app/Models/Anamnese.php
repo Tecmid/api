@@ -20,6 +20,7 @@ class Anamnese extends TecmidModel
         'blood_pressure',
         'heart_rate',
         'hypothesis',
+        'evolution',
         'notes',
     ];
 }
