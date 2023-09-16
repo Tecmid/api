@@ -37,6 +37,7 @@ Route::prefix('v1')->group(function () {
 
             Route::prefix('anamnese')->group(function () {
                 Route::post('/', [AnamneseController::class, 'createOrUpdate']);
+                Route::put('{anamneseId}', [AnamneseController::class, 'update']);
             });
         });
     });
