@@ -23,7 +23,7 @@ class AppointmentService extends TecmidService
             'doctor_id' => 'integer|required',
             'patient_id' => 'integer|required',
             'date' => 'required',
-            'status' => 'integer|required',
+            'status' => 'string|required',
             'payment_status' => 'required'
         ]);
 

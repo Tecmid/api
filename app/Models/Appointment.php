@@ -16,7 +16,7 @@ class Appointment extends TecmidModel
         'patient_id',
         'anamnese_id',
         'date',
-        'status',
+        'status',  // possible values: [created, confirmed, done, canceled]
         'payment_status',
         'notes',
         'duration',
