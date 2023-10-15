@@ -29,4 +29,14 @@ class AppointmentService extends TecmidService
 
         return parent::create($request);
     }
+
+    /**
+     * Get appointments by doctorId
+     * 
+     * @param int $doctorId
+     */
+    public function getAppointmentsByDoctorId($doctorId)
+    {
+        return $this->repository->getAppointmentsByDoctorId($doctorId);
+    }
 }

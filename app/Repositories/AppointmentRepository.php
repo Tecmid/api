@@ -10,4 +10,9 @@ class AppointmentRepository extends TecmidRepository
     {
         parent::__construct(new Appointment());
     }
+
+    public function getAppointmentsByDoctorId($doctorId)
+    {
+        return $this->model::where('doctor_id', $doctorId)->get();
+    }
 }

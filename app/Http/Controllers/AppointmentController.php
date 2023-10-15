@@ -11,4 +11,9 @@ class AppointmentController extends TecmidController
         $this->itemDomain = 'appointmentId';
         parent::__construct(new AppointmentService());
     }
+
+    public function getAppointmentsByDoctorId($doctorId)
+    {
+        return $this->service->getAppointmentsByDoctorId($doctorId);
+    }
 }
