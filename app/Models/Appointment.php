@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Appointment extends TecmidModel
 {
+    protected $table = 'appointments';
+    
     /**
      * The attributes that are mass assignable.
      *
