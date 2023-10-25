@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\AuthRequest;
 use App\Services\AuthService;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\JsonResponse;
 
 class AuthController extends TecmidController
@@ -45,4 +46,13 @@ class AuthController extends TecmidController
         return $this->service->login($request);
     }
 
+    /**
+     * Get user info by token
+     * 
+     * @return Model
+     */
+    public function getUserByToken(): Model
+    {
+        return $this->service->getUserByToken();
+    }
 }

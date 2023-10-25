@@ -19,8 +19,9 @@ use App\Http\Controllers\DoctorController;
 Route::prefix('v1')->group(function () {
     Route::post('authenticate', [AuthController::class, 'authenticate']);
     Route::post('register', [DoctorController::class, 'create']);
-
+    
     Route::middleware('ApiAuth')->group(function () {
+        Route::post('user', [AuthController::class, 'getUserByToken']);
         Route::post('auth/refresh', [AuthController::class, 'refresh']);
         
         Route::prefix('doctors')->group(function () {
